@@ -11,7 +11,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">
 
-
+    <script src="/js/juego1.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/css/cssBustrap/bootstrap.min.css">
@@ -25,11 +25,13 @@
             user-select: none;
         }
 
-        body {
+        .body {
             font-family: 'Comic Sans MS', cursive;
+            min-width: 500px;
         }
 
         @media (min-width: 768px) {
+            
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
             }
@@ -64,18 +66,20 @@
         <symbol id="mentalGames" viewBox="0 0 16 16">
             <!-- Fondo -->
             <rect width="16" height="16" fill="#f8d7da" />
-        
+
             <!-- Cerebro -->
             <path d="M8 3.5a2 2 0 1 0-4 0 2 2 0 0 0 4 0z" fill="#ff5733" />
             <path d="M8 3.5a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" fill="#e23e1c" />
-        
+
             <!-- Rayos o conexiones -->
-            <path d="M4 3.5l2.828-2.828.707.707-2.828 2.828-.707-.707zM8 1.5h1v-1h-1v1zm4.707 2.121l.707-.707 2.828 2.828-.707.707-2.828-2.828zM11 4.5v1h1v-1h-1zM8 7.5v1h1v-1h-1zM4.707 9.621l.707.707-2.828 2.828-.707-.707 2.828-2.828zM4 10.5h1v-1H4v1zM1.293 12.121l.707-.707 2.828 2.828-.707.707-2.828-2.828zM2 12.5v1h1v-1H2zM4 12.5h1v-1H4v1z" fill="#007bff" />
-        
+            <path
+                d="M4 3.5l2.828-2.828.707.707-2.828 2.828-.707-.707zM8 1.5h1v-1h-1v1zm4.707 2.121l.707-.707 2.828 2.828-.707.707-2.828-2.828zM11 4.5v1h1v-1h-1zM8 7.5v1h1v-1h-1zM4.707 9.621l.707.707-2.828 2.828-.707-.707 2.828-2.828zM4 10.5h1v-1H4v1zM1.293 12.121l.707-.707 2.828 2.828-.707.707-2.828-2.828zM2 12.5v1h1v-1H2zM4 12.5h1v-1H4v1z"
+                fill="#007bff" />
+
             <!-- Ojos -->
             <circle cx="5" cy="3.5" r="0.5" fill="#000" />
             <circle cx="11" cy="3.5" r="0.5" fill="#000" />
-        
+
             <!-- Boca -->
             <path d="M6 6c0 1.657 1.343 3 3 3s3-1.343 3-3H6z" fill="#000" />
         </symbol>
@@ -91,18 +95,18 @@
         <symbol id="strongBrain" viewBox="0 0 16 16">
             <!-- Cuerpo del cerebro -->
             <ellipse cx="8" cy="8" rx="6" ry="7" fill="#87CEEB" />
-        
+
             <!-- Brazos -->
             <rect x="4" y="6" width="2" height="6" fill="#FFD700" />
             <rect x="10" y="6" width="2" height="6" fill="#FFD700" />
-        
+
             <!-- Músculos en los brazos -->
             <rect x="3" y="10" width="4" height="2" fill="#8B4513" />
             <rect x="9" y="10" width="4" height="2" fill="#8B4513" />
-        
+
             <!-- Ojos -->
             <circle cx="7" cy="7" r="1" fill="#000" />
-        
+
             <!-- Boca -->
             <path d="M6 9.5h4c0 .828-.672 1.5-1.5 1.5S7 10.328 7 9.5z" fill="#000" />
         </symbol>
@@ -133,34 +137,39 @@
 
                         <li class="nav-item">
                             <a class="nav-link active" href="mentales/mainMentales">
-                                <img src="/img/cerebro_musculoso.png" alt="Juegos mentales" class="bi d-block mx-auto mb-1" height="48">
+                                <img src="/img/cerebro_musculoso.png" alt="Juegos mentales"
+                                    class="bi d-block mx-auto mb-1" height="48">
                                 Juegos mentales
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link active" href="mentales/mainMentales">
-                                <img src="/img/reflejo_sin_fondo.png" alt="Juegos mentales" class="bi d-block mx-auto mb-1" height="48">
+                                <img src="/img/reflejo_sin_fondo.png" alt="Juegos mentales"
+                                    class="bi d-block mx-auto mb-1" height="48">
                                 Activa tus Reflejos
                             </a>
                         </li>
-                        
+
 
                         <li class="nav-item">
                             <a href="#" class="nav-link active">
-                                <img src="/img/matematicon_sin_fondo.png" alt="Juegos mentales" class="bi d-block mx-auto mb-1" height="48">
+                                <img src="/img/matematicon_sin_fondo.png" alt="Juegos mentales"
+                                    class="bi d-block mx-auto mb-1" height="48">
                                 Ejercicios Matemágicos
                             </a>
                         </li>
                         <li>
                             <a href="#" class="nav-link active">
-                                <img src="/img/literaria_sin_fondo.png" alt="Juegos mentales" class="bi d-block mx-auto mb-1" height="48">
+                                <img src="/img/literaria_sin_fondo.png" alt="Juegos mentales"
+                                    class="bi d-block mx-auto mb-1" height="48">
                                 Aventuras Literarias
                             </a>
                         </li>
                         <li>
                             <a href="#" class="nav-link active">
-                                <img src="/img/table.png" alt="Juegos mentales" class="bi d-block mx-auto mb-1" height="48">
+                                <img src="/img/table.png" alt="Juegos mentales" class="bi d-block mx-auto mb-1"
+                                    height="48">
                                 TablaManía
                             </a>
                         </li>
@@ -169,19 +178,19 @@
 
                     <!-- Menú de usuario -->
                     <div class="dropdown text-end ms-auto" style="margin-right: 20px;">
-                        <a  class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+                        <a class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="mdo" width="36" height="36"
                                 class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                            <li><a class="nav-link active">Profile    </a> </li>
-                            <li><a class="nav-link active">Account   </a> </li>
-                            <li><a class="nav-link active">Credits   </a> </li> 
-                            <li><a class="nav-link active">Scores   </a> </li>
+                            <li><a class="nav-link active">Profile </a> </li>
+                            <li><a class="nav-link active">Account </a> </li>
+                            <li><a class="nav-link active">Credits </a> </li>
+                            <li><a class="nav-link active">Scores </a> </li>
                         </ul>
                     </div>
-                    
+
                 </div>
             </div>
         </nav>
@@ -208,8 +217,8 @@
     </footer>
 
     <script src="/js/jsBustrap/bootstrap.bundle.min.js"></script>
-    <script src="/_lib/adminContainer.js"></script>
-
+    <script  src="/_lib/adminContainer.js" type="module" ></script>
+    <script  src="/js/gameManager.js"></script>
 </body>
 
 </html>

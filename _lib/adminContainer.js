@@ -1,7 +1,9 @@
+
+const  contentContainer = document.getElementById("content-container");
+
 document.addEventListener("DOMContentLoaded", function ()
 {
     const navLinks = document.querySelectorAll(".nav-link");
-    const contentContainer = document.getElementById("content-container");
     var contentResult = document.getElementById("content-result");
  
 
