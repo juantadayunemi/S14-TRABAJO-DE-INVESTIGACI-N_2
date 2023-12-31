@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Memoria</title>
+  <style>
+   #game-container {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px; /* Reducir el espacio entre columnas y filas a 1px */
+        justify-content: center; 
+        margin-left: auto;
+        margin-right: auto;
+        height: 300px; 
+        width: 300px; 
+        }
+
+        .card {
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            margin: 1px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 10px;
+            font-size: 18px;
+            background-color: #ccc; 
+        }
+
+    @keyframes ganadorAnimacion {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+        margin-top: -80px;
+    }
+    100% {
+        transform: scale(1);
+        margin-top: 0;
+    }
+    }
+
+    #timer.ganador {
+    animation: ganadorAnimacion 2s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+
+    <div style="text-align: center;">
+        <h2 >¡Bienvenido a "Memoria Maestra"!</h2>
+
+        <p>¡Pon a prueba tu memoria y habilidades de concentración con este emocionante juego de memoria visual! 🧠💡</p>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center" style="height: 30px;margin-top: 10px;">
+        <div class="btn btn-success" id="btn-success">Iniciar nuevo juego</div>
+    </div>
+    
+    <div id="game-container"></div>
+    <div class="d-flex justify-content-center align-items-center" style="height: 50px;margin-top: 10px;">
+        <div id="timer">Tiempo: 0 segundos</div>
+    </div>
+    
+    <hr>
+
+    <div class="descripcion-juego" style="margin: 10px;">
+ 
+   
+        <h3>¿Cómo jugar?</h3>
+        <p>En "Concentración Cromática", tu objetivo es encontrar todas las parejas de cartas con colores coincidentes. El tablero consta de varias tarjetas volteadas boca abajo, cada una con un color único. Deberás dar clic en dos tarjetas para revelar sus colores y encontrar pares idénticos.</p>
+
+        <h3>Desafío de Recordación:</h3>
+        <p>Recuerda la ubicación de cada color a medida que exploras el tablero. ¡Cuidado! Las tarjetas se volverán a voltear si no encuentras un par coincidente, así que presta atención y memoriza los colores.</p>
+
+        <h3>Ritmo y Tiempo:</h3>
+        <p>El juego incluye un temporizador que registra el tiempo que tardas en completar el desafío. ¡Intenta superar tus mejores tiempos y desafía a tus amigos a hacer lo mismo!</p>
+
+        <h3>Características:</h3>
+        <ul>
+            <li>Tarjetas de colores vibrantes y atractivos.</li>
+            <li>Desafíos de memoria que aumentan en dificultad a medida que avanzas.</li>
+            <li>Temporizador para medir tu rapidez y mejorar tu concentración.</li>
+        </ul>
+
+        <p>¿Estás listo para el desafío? ¡Haz clic en "Iniciar nuevo juego" y demuestra que tienes la mejor memoria cromática!</p>
+
+        <p>¡Diviértete jugando "Concentración Cromática"! 🌈✨</p>
+    </div>
+ </body>
+
+</html>

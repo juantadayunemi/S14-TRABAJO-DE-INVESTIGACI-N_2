@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinanzas Visuales</title>
+    <style>
+    .card {
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 18px;
+        transition: border-width 0.3s ease-in-out;
+        border: 2px solid #ccc;
+    }
+
+    .correct-guess {
+        border-width: 5px;
+        border-color: green;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="d-flex justify-content-center align-items-center" style="height: 30px;margin-top: 10px;">
+        <div class="btn btn-success" id="btn-success">Iniciar nuevo juego</div>
+    </div>
+
+    <div id="game-container" class="d-flex justify-content-center align-items-center flex-wrap">
+        <!-- Aquí se generan dinámicamente las tarjetas -->
+    </div>
+
+
+    <div id="timer">Tiempo: 0 segundos</div>
+
+    <audio id="correct-sound" src="/src/gato-cachorro-gatito-miau-.mp3"></audio>
+    <audio id="incorrect-sound" src="/src/pierde_juego.mp3"></audio>
+
+
+</body>
+</html>

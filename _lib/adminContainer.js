@@ -1,11 +1,9 @@
 
-const  contentContainer = document.getElementById("content-container");
+const  contentContainer = document.getElementById("target-content");
 
 document.addEventListener("DOMContentLoaded", function ()
 {
     const navLinks = document.querySelectorAll(".nav-link");
-    var contentResult = document.getElementById("content-result");
- 
 
     navLinks.forEach(link => {
         link.addEventListener("click", function (event) {
@@ -31,8 +29,7 @@ document.addEventListener("DOMContentLoaded", function ()
             .then(data => {
                 
                 contentContainer.innerHTML = data;
-                contentResult.innerHTML  = "";
-
+   
                 // Ejecuta submitForm después de cargar el contenido del formulario parcial
                 submitFormSetup();
             })
