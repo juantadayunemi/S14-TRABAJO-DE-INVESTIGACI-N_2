@@ -22,13 +22,12 @@ timerInterval  = 0;
     {
         console.log('LoadGame function called');
 
-        
         initializeGame();
-        stopGame();
-
+  
         var button = document.getElementById('btn-success');
 
         button.addEventListener('click', () => {
+            
             initializeGame();
 
             if (timerInterval) {
@@ -38,6 +37,7 @@ timerInterval  = 0;
             timerInterval = setInterval(updateTimer, 1000);
         });
     };
+
 
     shuffleArray= function(array) {
         return array.slice().sort(() => Math.random() - 0.5);

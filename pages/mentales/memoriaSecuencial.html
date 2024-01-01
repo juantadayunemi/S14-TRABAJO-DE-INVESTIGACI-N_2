@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concentración Cromática</title>
+  <style>
+    #game-container {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 1px 0px;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      height: 400px;
+      width: 400px;
+    }
+
+    .card {
+      width: 150px;
+      height: 150px;
+      border: 1px solid black;
+      display: inline-block;
+      margin: 5px;
+      text-align: center;
+      line-height: 100px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    @keyframes ganadorAnimacion {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(3);
+        margin-top: -80px;
+      }
+      100% {
+        transform: scale(1);
+        margin-top: 0;
+      }
+    }
+
+    #timer.ganador {
+      animation: ganadorAnimacion 2s ease-in-out;
+    }
+  </style>
+</head>
+
+<body>
+
+  <audio id="error-sound" src="/src/pierde_juego.mp3"></audio>
+  <audio id="applause-sound" src="/src/applause-sound.mp3"></audio>
+  
+  <div style="text-align: center;">
+    <h2>¡Bienvenido a Memoria Secuencial!</h2>
+
+    <p>¡Pon a prueba tu memoria de largo con este emocionante juego de memoria secuencial! 🧠💡</p>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center" style="height: 30px;margin-top: 10px;">
+    <div class="btn btn-success" id="btn-success">Iniciar nuevo juego</div>
+  </div>
+  
+  <div id="game-container"></div>
+  
+  <div class="d-flex justify-content-center align-items-center" style="height: 50px;margin-top: 10px;">
+    <div id="timer">Tiempo: 0 segundos</div>
+  </div>
+  
+  <hr>
+  <div class="descripcion-juego" style="margin: 10px; margin-bottom: 60px;">
+    <div class="descripcion-juego" style="margin: 10px; margin-bottom: 60px;">
+        <h3>¿Cómo jugar?</h3>
+        <p>En "Memoria Secuencial", tu objetivo es recordar el orden de las cartas en la primera fila del tablero. Después de iniciar el juego, las tarjetas se voltearán. Haz clic sobre las tarjetas con imágenes en el orden en el que las visualizaste en la primera fila.</p>
+    
+        <h3>Desafío de Recordación:</h3>
+        <p>Recuerda el orden en el que aparecen las imágenes. Si das clic en el mismo orden en las tarjetas de la segunda fila, ganas.</p>
+    
+        <h3>Ritmo y Tiempo:</h3>
+        <p>El juego incluye un temporizador que registra el tiempo que tardas en completar el desafío. Intenta mejorar tus tiempos anteriores y desafía a tus amigos a hacer lo mismo.</p>
+    
+        <h3>Características:</h3>
+        <ul>
+            <li>Tarjetas con imágenes de animales vibrantes y atractivas.</li>
+            <li>Desafíos de memoria que aumentan en dificultad a medida que avanzas.</li>
+            <li>Temporizador para medir tu rapidez y mejorar tu concentración.</li>
+        </ul>
+    
+        <p>Al cabo de 3 segundos de iniciar el juego, las tarjetas se voltearán automáticamente.</p>
+    
+        <p>¿Estás listo para el desafío? ¡Haz clic en "Iniciar nuevo juego" y demuestra que tienes la mejor memoria secuencial!</p>
+    
+        <p>¡Diviértete jugando "Memoria Secuencial"! 🌈✨</p>
+    </div>
+    
+    
+</body>
+</html>

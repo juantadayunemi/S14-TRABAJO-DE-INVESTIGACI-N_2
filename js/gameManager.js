@@ -6,12 +6,10 @@ let scriptElement; // Variable para almacenar el elemento del script actual
 function deleteOldPage() {
     // Elimina el script anterior si existe
     if (scriptElement) {
+        stopGame(); // stop old gamer 
         document.head.removeChild(scriptElement);
         console.log("Script anterior eliminado.");
     }
-
-
-
     gameManager.innerHTML = '';
 }
 
@@ -69,6 +67,9 @@ function cargarContenido(page) {
                 case "mentales/adivinanzaVisual":
                     loadScrip('adivinanzaVisual');
                     break;
+                case "mentales/memoriaSecuencial":
+                    loadScrip('memoriaSecuencial');
+                    break;
             }
         })
         .catch(error => {
@@ -76,6 +77,3 @@ function cargarContenido(page) {
             console.log(error);
         });
 }
-
-
-

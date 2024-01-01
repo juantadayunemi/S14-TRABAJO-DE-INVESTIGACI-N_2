@@ -34,18 +34,11 @@ function LoadGame() {
 
     initializeGame();
 
-
     var button = document.getElementById('btn-success');
     button.addEventListener('click', function () {
-        initializeGame();
-
         startGame();
     });
 
-    clearInterval(timerInterval);
-    clearInterval(soundInterval);
-
-    console.log(`ya di stock yama`);
 }
 
 function createCard(animal) {
