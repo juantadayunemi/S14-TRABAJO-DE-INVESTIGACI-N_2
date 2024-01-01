@@ -1,22 +1,32 @@
-const colors= ['red', 'blue', 'green', 'yellow', '#12031c', 'orange', 'pink', 'brown'];
-let totalPairs  =colors.length;
+if (!window.color) {
+    const  colors= ['red', 'blue', 'green', 'yellow', '#12031c', 'orange', 'pink', 'brown'];
+    let totalPairs  =colors.length;
+    let backColor= 'gainsboro';
+    let cards=  []; 
+    let flippedCards= [];
+    let matchedPairs= 0;
+    let isFlipping= false;
+    let timerInterval  = 0;
+}
 
-let backColor= 'gainsboro';
-let cards=  []; 
-let flippedCards= [];
-
-let matchedPairs= 0;
-let isFlipping= false;
-let startTime= null; 
-let  timerInterval= null;
+colors= ['red', 'blue', 'green', 'yellow', '#12031c', 'orange', 'pink', 'brown'];
+totalPairs  =colors.length;
+backColor= 'gainsboro';
+cards=  []; 
+flippedCards= [];
+matchedPairs= 0;
+isFlipping= false;
+timerInterval  = 0;
 
     function LoadGame() 
     {
         console.log('LoadGame function called');
 
-        var button = document.getElementById('btn-success');
-
+        
         initializeGame();
+        stopGame();
+
+        var button = document.getElementById('btn-success');
 
         button.addEventListener('click', () => {
             initializeGame();
@@ -43,6 +53,7 @@ let  timerInterval= null;
     };
 
     function initializeGame () {
+       
         cards = shuffleArray([...colors, ...colors]);
         matchedPairs = 0;
         isFlipping = false;
@@ -67,6 +78,12 @@ let  timerInterval= null;
             });
         }, 1000);
     };
+
+
+    function stopGame() {
+        isGameActive = false;
+        clearInterval(timerInterval);
+    }
 
     function onCardClick(card) {
        
@@ -110,7 +127,6 @@ let  timerInterval= null;
 
         const [index1, index2] = flippedCards;
     
-        console.log( flippedCards);
 
         const card1 = document.getElementById('game-container').children[index1];
         const card2 = document.getElementById('game-container').children[index2];

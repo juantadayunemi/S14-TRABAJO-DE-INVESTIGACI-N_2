@@ -3,14 +3,26 @@ const  gameManager = document.getElementById("game-manager");
 
 let scriptElement; // Variable para almacenar el elemento del script actual
 
-
-function loadDynamicScript(nombreArchivo) {
-    const ruta = `/js/${nombreArchivo}.js`;
-
+function deleteOldPage() {
     // Elimina el script anterior si existe
     if (scriptElement) {
         document.head.removeChild(scriptElement);
+        console.log("Script anterior eliminado.");
     }
+
+
+
+    gameManager.innerHTML = '';
+}
+
+function loadDynamicScript(nombreArchivo) {
+
+    if (document.querySelector(`script[src="${nombreArchivo}.js"]`)) {
+        return Promise.resolve();
+    }
+
+    const ruta = `/js/${nombreArchivo}.js`;
+   
 
     // Crea un nuevo script y asigna la ruta
     scriptElement = document.createElement('script');
@@ -41,31 +53,29 @@ function loadScrip(nameFile){
     });
 }
 
-
 function cargarContenido(page) {
     const url = `./pages/${page}.html`;
+
+    deleteOldPage();
 
     fetch(url)
         .then(response => response.text())
         .then(data => {
-            console.log(page);
             gameManager.innerHTML = data;
-            switch (page)
-            {
+            switch (page) {
                 case "mentales/memoriaMaestra":
                     loadScrip('menteMaestra');
                     break;
                 case "mentales/adivinanzaVisual":
                     loadScrip('adivinanzaVisual');
-                    break
-                
+                    break;
             }
-       
         })
         .catch(error => {
             console.log(`Error al cargar la página parcial: ${error}`);
             console.log(error);
         });
 }
+
 
 

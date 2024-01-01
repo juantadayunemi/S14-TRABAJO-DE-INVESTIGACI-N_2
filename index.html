@@ -11,31 +11,66 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">
 
-  
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/css/cssBustrap/bootstrap.min.css">
     <link rel="stylesheet" href="/headers.css">
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
+    #game-container {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1px;
+        justify-content: center;
+        align-items: flex-start; /* Alinear en la parte superior del contenedor */
+        margin-left: auto;
+        margin-right: auto;
+        height: 220px;
+    }
+    
+    .card {
+        width: 100px;
+        height: 100px;
+        background-color: #f0f0f0;
+        margin: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 18px;
+        transition: border-width 0.3s ease-in-out;
+        border: 2px solid #ccc;
+    }
+    
+    .correct-guess {
+        border-width: 1px;
+        border-color: green;
+        background-color: #cacaca;
+    }
+    
+    #timer {
+        z-index: 1; /* Asegura que el temporizador esté en la parte superior */
+    }
+    
+    @keyframes ganadorAnimacion {
+        0% {
+            transform: scale(1);
         }
-
-        .body {
-            font-family: 'Comic Sans MS', cursive;
-            min-width: 500px;
+        50% {
+            transform: scale(3);
+            margin-top: -80px;
         }
-
-        @media (min-width: 768px) {
-            
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        100% {
+            transform: scale(1);
+            margin-top: 0;
         }
+    }
+    
+    #timer.ganador {
+        animation: ganadorAnimacion 2s ease-in-out;
+    }
+    
     </style>
 
 

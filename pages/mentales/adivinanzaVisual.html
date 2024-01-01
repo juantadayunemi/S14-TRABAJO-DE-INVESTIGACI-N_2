@@ -5,27 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adivinanzas Visuales</title>
     <style>
+    #game-container {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+            grid-template-rows: repeat(4, 1fr); /* 4 filas */
+            gap: 1px; /* Reducir el espacio entre columnas y filas a 1px */
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            width: 420px;
+        }
+        
     .card {
-        width: 100px;
-        height: 100px;
-        background-color: #ccc;
-        margin: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
+        background-color: #f0f0f0;
         font-size: 18px;
         transition: border-width 0.3s ease-in-out;
         border: 2px solid #ccc;
+        width: 100px;
+        height: 100px;
+        margin: 1px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 10px;
+        font-size: 18px;
     }
 
     .correct-guess {
-        border-width: 5px;
+        border-width: 1px;
         border-color: green;
+        background-color: #cacaca;
     }
+    
+    @keyframes ganadorAnimacion {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+        margin-top: -80px;
+    }
+    100% {
+        transform: scale(1);
+        margin-top: 0;
+    }
+    }
+
+    #timer.ganador {
+    animation: ganadorAnimacion 2s ease-in-out;
+    }
+    
     </style>
 </head>
+
 <body>
+
+    <div style="text-align: center;">
+        <h2 >¡Bienvenido a 'Desafío Mental Auditivo'! </h2>
+
+        <p>Pon a prueba tu agudeza auditiva y memoria en este desafiante juego. Escucha los sonidos de diferentes animales y empareja cada sonido con su correspondiente imagen </p>
+
+    </div>
+
+
 
     <div class="d-flex justify-content-center align-items-center" style="height: 30px;margin-top: 10px;">
         <div class="btn btn-success" id="btn-success">Iniciar nuevo juego</div>
@@ -35,12 +78,49 @@
         <!-- Aquí se generan dinámicamente las tarjetas -->
     </div>
 
+        
+    <div class="d-flex justify-content-center align-items-center" style="height: 50px;margin-top: 10px;">
+          <div id="timer">Tiempo: 0 segundos</div>
+    </div>
+    
 
-    <div id="timer">Tiempo: 0 segundos</div>
+    
+    <hr>
 
-    <audio id="correct-sound" src="/src/gato-cachorro-gatito-miau-.mp3"></audio>
-    <audio id="incorrect-sound" src="/src/pierde_juego.mp3"></audio>
+    <div class="descripcion-juego" style="margin: 10px; margin-bottom: 60px;">
+        <h3>¿Cómo jugar a Desafío Mental Auditivo?</h3>
+        <p>En "Memoria Sonora", tu desafío es poner a prueba tu agudeza auditiva y memoria. Escucha los sonidos de diferentes animales y encuentra las parejas correspondientes. El tablero presenta tarjetas con sonidos únicos, ¡encuentra los emparejamientos correctos para ganar!</p>
+    
+        <h3>Desafío de Audición y Memoria:</h3>
+        <p>Recuerda los sonidos de los animales a medida que exploras el tablero. Presta atención, ya que el juego penaliza la falta de respuesta. ¡Demuestra que puedes recordar cada eco y superar tus propios límites!</p>
+    
+        <h3>Ritmo y Tiempo:</h3>
+        <p>El temporizador registra el tiempo que tardas en completar el desafío. ¡Intenta mejorar tus tiempos anteriores y desafía a tus amigos a hacer lo mismo! Mantén el ritmo y la concentración para alcanzar la victoria.</p>
+    
+        <h3>Características:</h3>
+        <ul>
+            <li>Sonidos realistas de animales para una experiencia inmersiva.</li>
+            <li>Desafíos que aumentan en dificultad a medida que avanzas.</li>
+            <li>Temporizador para medir tu rapidez auditiva y mejorar tu concentración.</li>
+        </ul>
+    
+        <p>¿Estás listo para el desafío? ¡Haz clic en "Iniciar nuevo juego" y demuestra que tienes la mejor memoria sonora!</p>
+    
+        <p>¡Diviértete jugando "Desafío Mental Auditivo"!🐾🎶</p>
+    </div>
+    
 
 
+    <audio id="error-sound" src="/src/pierde_juego.mp3"></audio>
+    <audio id="applause-sound" src="/src/applause-sound.mp3"></audio>
+
+    <audio id="gato" src="/src/gato-cachorro-gatito-miau-.mp3"></audio>
+    <audio id="perro" src="/src/perro_cachorro.mp3"></audio>
+    <audio id="cardinal" src="/src/sonido_cardinal.mp3"></audio>
+    <audio id="elefante" src="/src/sonido_elefante.mp3"></audio>
+    <audio id="leon" src="/src/sonido_leon.mp3"></audio>
+    <audio id="rana" src="/src/sonido_rana.mp3"></audio>
+    <audio id="vaca" src="/src/sonido_vaca.mp3"></audio>
+    <audio id="caballo" src="/src/sonido_caballo.mp3"></audio>
 </body>
 </html>
