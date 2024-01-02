@@ -93,6 +93,8 @@ function startGame() {
     isGameActive = true;
     consecutiveRepetitions = 0;
 
+    initializeGame();
+    
     const shuffledSounds = [...animals];
     shuffleArray(shuffledSounds);
 

@@ -67,8 +67,11 @@ function cargarContenido(page) {
                 case "mentales/adivinanzaVisual":
                     loadScrip('adivinanzaVisual');
                     break;
-                case "mentales/memoriaSecuencial":
+                case "mentales/memoriaSecuencial": //reflejos/mainReflejos
                     loadScrip('memoriaSecuencial');
+                    break;
+                case "reflejos/numerosCayendo": //
+                    loadScrip('numerosCayendo');
                     break;
             }
         })
