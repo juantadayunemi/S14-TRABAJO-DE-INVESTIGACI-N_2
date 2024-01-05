@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administrar Tabla</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/cssBustrap/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h2 class="text-center mb-4">Administrar Tabla</h2>
+
+        
+        <!-- Botones -->
+        <div class="text-center">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarModal">
+            Agregar
+          </button>
+        </div>
+
+        <!-- Tabla -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí se generarán las filas dinámicamente desde el array -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Agregar -->
+  <div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="agregarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="agregarModalLabel">Agregar Elemento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Contenido del formulario de agregar -->
+          <form id="formAgregar">
+            <div class="mb-3">
+              <label for="nombreAgregar" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nombreAgregar" required  >
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal editar -->
+   <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editarModalLabel">Editar Elemento</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Contenido del formulario de agregar -->
+          <form id="formUpdate">
+            <div class="mb-3">
+              <label for="nameUpdate" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nameUpdate" required>
+            </div>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap JS y Popper.js (requeridos para los modales) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="/js/jsBustrap/bootstrap.min.js"></script>
+
+</body>
+</html>

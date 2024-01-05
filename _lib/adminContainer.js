@@ -1,5 +1,6 @@
 
-const  contentContainer = document.getElementById("target-content");
+const  cardContainer = document.getElementById("card_container");
+const  gameConatiner = document.getElementById("game_container");
 
 document.addEventListener("DOMContentLoaded", function ()
 {
@@ -10,50 +11,41 @@ document.addEventListener("DOMContentLoaded", function ()
             event.preventDefault();
             const page = this.getAttribute("href");
 
+            //Efecto de color
             navLinks.forEach(link => {
                 link.classList.remove("text-warning");
             });
-
             this.classList.add("text-warning");
 
+            //carga  página parcial
             loadPartialPage(page);
         });
     });
 
     function loadPartialPage(page) {
-        const url = `./pages/${page}.html`;
 
-
+        if (page === null || page === undefined) {
+            cardContainer.innerHTML = null;
+            gameConatiner.innerHTML  = null;
+            return;
+        }
+ 
+        //Construyo la url a cargar
+        let url = `./pages/${page}.html`;
+        
         fetch(url)
             .then(response => response.text())
             .then(data => {
                 
-                contentContainer.innerHTML = data;
-   
-                // Ejecuta submitForm después de cargar el contenido del formulario parcial
-                submitFormSetup();
+                //carga las tarjetas de grupos de juego
+                cardContainer.innerHTML = data;
+                gameConatiner.innerHTML  = null;
             })
             .catch(error => {
                 console.log(`Error al cargar la página parcial: ${error}`);
                 console.log(error);
             });
-    }
 
-    // Función para establecer la lógica del formulario después de cargar el contenido
-    function submitFormSetup() {
-        const submitButtons = document.querySelectorAll("[data-form-type]");
-        submitButtons.forEach(button => {
-            button.addEventListener("click", submitForm);
-        });
-    }
-
-    // Función para procesar el formulario parcial
-    function submitForm(event) {
-
-        const newScript = document.createElement('script');
-
-        var formType = event.target.dataset.formType;
-        var formData = {};
     }
 
 });

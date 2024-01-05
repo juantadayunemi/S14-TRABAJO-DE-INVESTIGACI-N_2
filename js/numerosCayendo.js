@@ -1,6 +1,6 @@
-if (!window.gameContainer) {
-  const gameContainer = document.getElementById('game-container');
-  const timerDisplay = document.getElementById('timer');
+if (!window.gamePanel) {
+  let gamePanel = document.getElementById('game_panel');
+  let timerDisplay = document.getElementById('timer');
   let score = 1;
   let isGameActive = false;
   let animationId = null;
@@ -9,7 +9,7 @@ if (!window.gameContainer) {
   let totalTime = 0;
   let fallSpeed = 1; // Factor de velocidad inicial
 }
- gameContainer = document.getElementById('game-container');
+gamePanel = document.getElementById('game_panel');
  timerDisplay = document.getElementById('timer');
  score = 1;
  isGameActive = false;
@@ -18,8 +18,8 @@ if (!window.gameContainer) {
  timerInterval = null;
  fallSpeed = 1;
 
-gameContainer.style.height = '500px';
-gameContainer.style.margin = '60px';
+ gamePanel.style.height = '500px';
+ gamePanel.style.margin = '60px';
 
 function LoadGame() {
   const button = document.getElementById('btn-success');
@@ -59,17 +59,17 @@ function createNumber() {
   number.style.margin = '5';
   number.style.padding = '5';
   number.style.backgroundColor  = 'red' ;
-    number.style.left = `${Math.random() * (gameContainer.offsetWidth - 50)}px`;
+    number.style.left = `${Math.random() * (gamePanel.offsetWidth - 50)}px`;
   number.addEventListener('click', () => handleNumberClick(number.animationToken));
   const animationToken = { isCancelled: false };
   number.animationToken = animationToken;
-  gameContainer.appendChild(number);
+  gamePanel.appendChild(number);
   animateNumber(number, animationToken);
 }
 
 function animateNumber(number, animationToken) {
   const numberHeight = number.offsetHeight;
-  const containerHeight = gameContainer.offsetHeight;
+  const containerHeight = gamePanel.offsetHeight;
   let isNumberRemoved = false;
 
   function fall() {
@@ -99,8 +99,8 @@ function animateNumber(number, animationToken) {
 
 
 function clearNumber(number) {
-  if (gameContainer.contains(number)) {
-    gameContainer.removeChild(number);
+  if (gamePanel.contains(number)) {
+    gamePanel.removeChild(number);
   }
 }
 

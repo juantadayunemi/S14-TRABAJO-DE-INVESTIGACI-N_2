@@ -64,7 +64,7 @@ function startGame()
         // Generar tarjetas para la primera fila para simular que tapo las imagenes
         generateCards(false, false);
     
-        // nuemvamente retormo como estava impresoi pero tapado
+        // nuevamente retormo como estaba impreso, pero tapado
         shuffledImages  =[...copydata]
         generateCards(true, true);
     

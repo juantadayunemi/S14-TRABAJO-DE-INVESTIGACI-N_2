@@ -18,7 +18,7 @@ matchedPairs= 0;
 isFlipping= false;
 timerInterval  = 0;
 
-    function LoadGame() 
+function LoadGame() 
     {
         console.log('LoadGame function called');
 
@@ -36,56 +36,56 @@ timerInterval  = 0;
 
             timerInterval = setInterval(updateTimer, 1000);
         });
-    };
+};
 
 
-    shuffleArray= function(array) {
-        return array.slice().sort(() => Math.random() - 0.5);
-    };
+shuffleArray= function(array) {
+    return array.slice().sort(() => Math.random() - 0.5);
+};
 
-    function createCard(color) {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.dataset.color = color;
-        card.style.backgroundColor = backColor;
-        card.addEventListener('click', () => onCardClick(card));
-        return card;
-    };
+function createCard(color) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.color = color;
+    card.style.backgroundColor = backColor;
+    card.addEventListener('click', () => onCardClick(card));
+    return card;
+};
 
-    function initializeGame () {
-       
-        cards = shuffleArray([...colors, ...colors]);
-        matchedPairs = 0;
-        isFlipping = false;
-        flippedCards = [];
+function initializeGame () {
+    
+    cards = shuffleArray([...colors, ...colors]);
+    matchedPairs = 0;
+    isFlipping = false;
+    flippedCards = [];
 
-        const gameContainer = document.getElementById('game-container');
-        gameContainer.innerHTML = '';
+    const gameContainer = document.getElementById('game-container');
+    gameContainer.innerHTML = '';
 
+    cards.forEach((color, index) => {
+        const card = createCard(color);
+        gameContainer.appendChild(card);
+    });
+
+    startTime = new Date();
+
+    updateTimer();
+
+    setTimeout(() => {
         cards.forEach((color, index) => {
-            const card = createCard(color);
-            gameContainer.appendChild(card);
+            const card = gameContainer.children[index];
+            card.style.backgroundColor = backColor;
         });
-
-        startTime = new Date();
-
-        updateTimer();
-
-        setTimeout(() => {
-            cards.forEach((color, index) => {
-                const card = gameContainer.children[index];
-                card.style.backgroundColor = backColor;
-            });
-        }, 1000);
-    };
+    }, 1000);
+};
 
 
-    function stopGame() {
-        isGameActive = false;
-        clearInterval(timerInterval);
-    }
+function stopGame() {
+    isGameActive = false;
+    clearInterval(timerInterval);
+}
 
-    function onCardClick(card) {
+function onCardClick(card) {
        
     if (!(timerInterval)) {
 
@@ -116,59 +116,59 @@ timerInterval  = 0;
         isFlipping = true;
         setTimeout(checkMatch, 500);
     }
-    };
+};
 
-    function checkMatch() {
+function checkMatch() {
 
-        if (!Array.isArray(flippedCards) || flippedCards.length !== 2) {
-            console.log('Error= No hay dos tarjetas volteadas.');
-            return;
-        }
+    if (!Array.isArray(flippedCards) || flippedCards.length !== 2) {
+        console.log('Error= No hay dos tarjetas volteadas.');
+        return;
+    }
 
-        const [index1, index2] = flippedCards;
-    
+    const [index1, index2] = flippedCards;
 
-        const card1 = document.getElementById('game-container').children[index1];
-        const card2 = document.getElementById('game-container').children[index2];
-    
-        if (card1.dataset.color === card2.dataset.color) {
-            // Coincidencia, bloquear las tarjetas
-            matchedPairs++;
-    
-            if (matchedPairs === totalPairs) {
-                const endTime = new Date();
-                const elapsedSeconds = Math.floor((endTime - startTime) / 1000);
-                document.getElementById('timer').textContent = `¡Has ganado en ${elapsedSeconds} segundos!`;
-    
-                if (timerInterval) {
-                    clearInterval(timerInterval); // Detiene el intervalo al completar el juego
-                }
-    
-                // Agregar la clase 'ganador' para iniciar la animación
-                document.getElementById('timer').classList.add('ganador');
-    
-                // Reiniciar la animación después de un tiempo (por ejemplo, 2 segundos)
-                setTimeout(() => {
-                    document.getElementById('timer').classList.remove('ganador');
-                }, 2000);
+
+    const card1 = document.getElementById('game-container').children[index1];
+    const card2 = document.getElementById('game-container').children[index2];
+
+    if (card1.dataset.color === card2.dataset.color) {
+        // Coincidencia, bloquear las tarjetas
+        matchedPairs++;
+
+        if (matchedPairs === totalPairs) {
+            const endTime = new Date();
+            const elapsedSeconds = Math.floor((endTime - startTime) / 1000);
+            document.getElementById('timer').textContent = `¡Has ganado en ${elapsedSeconds} segundos!`;
+
+            if (timerInterval) {
+                clearInterval(timerInterval); // Detiene el intervalo al completar el juego
             }
-        } else {
-            // No hay coincidencia, voltear las tarjetas nuevamente después de 1 segundo
+
+            // Agregar la clase 'ganador' para iniciar la animación
+            document.getElementById('timer').classList.add('ganador');
+
+            // Reiniciar la animación después de un tiempo (por ejemplo, 2 segundos)
             setTimeout(() => {
-                card1.style.backgroundColor = backColor;
-                card2.style.backgroundColor = backColor;
-                flippedCards = [];
-                isFlipping = false;
-            }, 100);
+                document.getElementById('timer').classList.remove('ganador');
+            }, 2000);
         }
-    
-        flippedCards = [];
-        isFlipping = false;
-    };
+    } else {
+        // No hay coincidencia, voltear las tarjetas nuevamente después de 1 segundo
+        setTimeout(() => {
+            card1.style.backgroundColor = backColor;
+            card2.style.backgroundColor = backColor;
+            flippedCards = [];
+            isFlipping = false;
+        }, 100);
+    }
+
+    flippedCards = [];
+    isFlipping = false;
+};
    
-    function  updateTimer() {
-        const currentTime = new Date();
-        const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
-        document.getElementById('timer').textContent = `Tiempo= ${elapsedSeconds} segundos`;
-    };
+function  updateTimer() {
+    const currentTime = new Date();
+    const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+    document.getElementById('timer').textContent = `Tiempo= ${elapsedSeconds} segundos`;
+};
 

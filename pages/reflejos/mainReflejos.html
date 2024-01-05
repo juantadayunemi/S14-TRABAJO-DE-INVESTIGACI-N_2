@@ -8,35 +8,44 @@
     <link href="/css/cssBustrap/bootstrap.min.css" rel="stylesheet">
     <style>
         .custom-card {
-            margin-top: -30px;
-
+            margin-top: 10px;
             transition: box-shadow 0.3s ease-in-out;
-            height: 120%;
+            height: 100%; 
+            min-width: 220px;
             background-color: antiquewhite;
             border-width:1px;
             border-style: solid;
             border-color: rgb(190, 190, 190);
             border-radius: 10px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+    }
+    
+    @media (max-width: 768px) { /* Establecer un punto de quiebre para dispositivos más pequeños */
+        .custom-card {
+            margin-bottom: 20px; /* Cambiar el margen inferior para mayor separación */
         }
-
-        .custom-card:hover {
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-            background-color: rgb(243, 207, 160);
-        }
-
-        .card-body {
-            height: 100%;
-            /* Ajustar la altura al 100% */
-        }
-
-        .card-title {
-            font-size:medium;
-        }
-        .card-text {
-            font-size: small;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    }
+    
+    .custom-card:hover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        background-color: rgb(243, 207, 160);
+    }
+    
+    .card-body {
+        height: 100%;
+        /* Ajustar la altura al 100% */
+    }
+    
+    .card-title {
+        font-size:medium;
+    }
+    
+    .card-text {
+        font-size: small;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     </style>
 </head>
@@ -62,7 +71,6 @@
     </div>
 
     <script src="/js/jsBustrap/bootstrap.bundle.js"></script>
-
 
 </body>
 

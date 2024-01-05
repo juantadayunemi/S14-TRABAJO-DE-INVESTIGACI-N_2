@@ -16,61 +16,64 @@
     <link rel="stylesheet" href="/css/cssBustrap/bootstrap.min.css">
     <link rel="stylesheet" href="/headers.css">
     <style>
-    #game-container {
-        margin-top: 20px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 1px;
-        justify-content: center;
-        align-items: flex-start; /* Alinear en la parte superior del contenedor */
-        margin-left: auto;
-        margin-right: auto;
-        height: 220px;
-    }
-    
-    .card {
-        width: 100px;
-        height: 100px;
-        background-color: #f0f0f0;
-        margin: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        font-size: 18px;
-        transition: border-width 0.3s ease-in-out;
-        border: 2px solid #ccc;
-    }
-    
-    .correct-guess {
-        border-width: 1px;
-        border-color: green;
-        background-color: #cacaca;
-    }
-    
-    #timer {
-        z-index: 1; /* Asegura que el temporizador esté en la parte superior */
-    }
-    
-    @keyframes ganadorAnimacion {
-        0% {
-            transform: scale(1);
+        #game-container {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1px;
+            justify-content: center;
+            align-items: flex-start;
+            /* Alinear en la parte superior del contenedor */
+            margin-left: auto;
+            margin-right: auto;
+            height: 220px;
         }
-        50% {
-            transform: scale(3);
-            margin-top: -80px;
+
+        .card {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f0f0;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: border-width 0.3s ease-in-out;
+            border: 2px solid #ccc;
         }
-        100% {
-            transform: scale(1);
-            margin-top: 0;
+
+        .correct-guess {
+            border-width: 1px;
+            border-color: green;
+            background-color: #cacaca;
         }
-    }
-    
-    #timer.ganador {
-        animation: ganadorAnimacion 2s ease-in-out;
-    }
-    
+
+        #timer {
+            z-index: 1;
+            /* Asegura que el temporizador esté en la parte superior */
+        }
+
+        @keyframes ganadorAnimacion {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(3);
+                margin-top: -80px;
+            }
+
+            100% {
+                transform: scale(1);
+                margin-top: 0;
+            }
+        }
+
+        #timer.ganador {
+            animation: ganadorAnimacion 2s ease-in-out;
+        }
     </style>
 
 
@@ -118,23 +121,23 @@
 
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a class="nav-link active"  href="">
                                 <img src="/img/matematicon_sin_fondo.png" alt="Juegos mentales"
                                     class="bi d-block mx-auto mb-1" height="48">
                                 Ejercicios Matemágicos
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link active">
+                            <a class="nav-link active"  href="">
                                 <img src="/img/literaria_sin_fondo.png" alt="Juegos mentales"
                                     class="bi d-block mx-auto mb-1" height="48">
                                 Aventuras Literarias
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link active">
+                            <a class="nav-link active"  onclick="cargarContenido('tablas/listaNotas')">
                                 <img src="/img/table.png" alt="Juegos mentales" class="bi d-block mx-auto mb-1"
-                                    height="48">
+                                   height="48">
                                 TablaManía
                             </a>
                         </li>
@@ -145,7 +148,7 @@
                     <div class="dropdown text-end ms-auto" style="margin-right: 20px;">
                         <a class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="mdo" width="36" height="36"
+                            <img src="/img/user02.png" alt="mdo" width="36" height="36"
                                 class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
@@ -163,15 +166,11 @@
 
     <div class="b-example-divider" style="height: 4px;"></div>
 
-    <div class="container-fluid">
-        <div id="content-container" class="bg-light">
-        </div>
-    </div>
+    <div id="card_container"></div>
 
-
-    <div id="target-content"></div>
     <hr style="margin: 30px;">
-    <div id="game-manager"></div>
+
+    <div id="game_container"></div>
 
 
     <!-- Footer con clases de Bootstrap -->
@@ -184,8 +183,8 @@
     </footer>
 
     <script src="/js/jsBustrap/bootstrap.bundle.min.js"></script>
-    <script  src="/_lib/adminContainer.js" type="module" ></script>
-    <script  src="/js/gameManager.js"></script>
+    <script src="/_lib/adminContainer.js" type="module"></script>
+    <script src="/_lib/gameManager.js"></script>
 </body>
 
 </html>
