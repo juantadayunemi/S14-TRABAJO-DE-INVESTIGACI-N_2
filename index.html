@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/cssBustrap/bootstrap.min.css">
     <link rel="stylesheet" href="/headers.css">
     <style>
+
         #game-container {
             margin-top: 20px;
             display: grid;
@@ -74,6 +75,12 @@
         #timer.ganador {
             animation: ganadorAnimacion 2s ease-in-out;
         }
+
+        a.nav-link:hover {
+        cursor: pointer;
+        }
+        
+  </style>
     </style>
 
 
@@ -135,10 +142,10 @@
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link active"  onclick="cargarContenido('tablas/listaNotas')">
-                                <img src="/img/table.png" alt="Juegos mentales" class="bi d-block mx-auto mb-1"
+                            <a class="nav-link active" onclick="cargarContenido('tablas/listaNotas')">
+                                <img src="/img/calificaData.png" alt="Juegos mentales" class="bi d-block mx-auto mb-1"
                                    height="48">
-                                TablaManía
+                                Califica Data
                             </a>
                         </li>
 

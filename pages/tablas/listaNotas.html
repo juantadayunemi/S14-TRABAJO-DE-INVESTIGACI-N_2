@@ -7,13 +7,13 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/css/cssBustrap/bootstrap.min.css">
 </head>
-<body class="bg-light">
+<body class="bg-light" >
 
-  <div class="container mt-5">
+  <div class="container mt-5" >
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <h2 class="text-center mb-4">Administrar Tabla</h2>
-
+        <h2 class="text-center mb-4">Estadística y administración de datos</h2>
+        <h6 class="text-center mb-4">¡Bienvenido a nuestro fascinante mundo de manejo de estadística.! </h6>
         
         <!-- Botones -->
         <div class="text-center">
@@ -28,14 +28,38 @@
             <tr>
               <th>ID</th>
               <th>Nombre</th>
-              <th>Acciones</th>
+              <th>Calificación</th>
             </tr>
           </thead>
           <tbody>
             <!-- Aquí se generarán las filas dinámicamente desde el array -->
           </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Total:</td>
+              <td id="totalCalif">0</td>
+            </tr>
+            <tr>
+              <td colspan="2"># Alumnos:</td>
+              <td id="numList">0</td>
+            </tr>
+            <tr>
+              <td colspan="2">Promedio:</td>
+              <td id="promedioCalif">0</td>
+            </tr>
+          </tfoot>
+
         </table>
       </div>
+     
+      <div class="descripcion-juego" style="margin: 10px; margin-bottom: 60px;">
+ 
+        <h3>Estadística y Administración de Datos</h3>
+  
+        <p>¡Bienvenido a nuestro fascinante mundo educativo! Sumérgete en la Estadística y Administración de Datos, donde aprender y divertirte van de la mano. Este juego educativo te invita a explorar, administrar y disfrutar del emocionante desafío de manejar tus notas escolares. ¡Transforma tus datos académicos en una experiencia emocionante mientras aprendes y te diviertes en el camino! ¡Descubre la alegría de administrar tu propio viaje educativo con nosotros!</p>
+      
+    </div>
+
     </div>
   </div>
 
@@ -50,10 +74,17 @@
         <div class="modal-body">
           <!-- Contenido del formulario de agregar -->
           <form id="formAgregar">
+
             <div class="mb-3">
-              <label for="nombreAgregar" class="form-label">Nombre:</label>
-              <input type="text" class="form-control" id="nombreAgregar" required  >
+              <label for="nameAdd" class="form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nameAdd" required  >
             </div>
+
+            <div class="mb-3">
+              <label for="califAdd" class="form-label">Calificación:</label>
+              <input type="number" class="form-control" id="califAdd" required step="any">
+            </div>
+
             <button type="submit" class="btn btn-primary">Agregar</button>
           </form>
         </div>
@@ -72,11 +103,18 @@
         <div class="modal-body">
           <!-- Contenido del formulario de agregar -->
           <form id="formUpdate">
+
             <div class="mb-3">
               <label for="nameUpdate" class="form-label">Nombre:</label>
               <input type="text" class="form-control" id="nameUpdate" required>
             </div>
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
+
+            <div class="mb-3">
+              <label for="califUpdate" class="form-label">Calificación:</label>
+              <input type="number" class="form-control" id="califUpdate" required  step="any" >
+            </div>
+
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="btnUpdate">Actualizar</button>
           </form>
         </div>
       </div>
