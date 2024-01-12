@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/cssBustrap/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .custom-card {
+        margin-top: 10px;
+        transition: box-shadow 0.3s ease-in-out;
+        height: 100%; 
+        min-width: 220px;
+        background-color: antiquewhite;
+        border-width:1px;
+        border-style: solid;
+        border-color: rgb(190, 190, 190);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    
+    @media (max-width: 768px) { /* Establecer un punto de quiebre para dispositivos más pequeños */
+        .custom-card {
+            margin-bottom: 20px; /* Cambiar el margen inferior para mayor separación */
+        }
+    }
+    
+    .custom-card:hover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        background-color: rgb(243, 207, 160);
+    }
+    
+    .card-body {
+        height: 100%;
+        /* Ajustar la altura al 100% */
+    }
+    
+    .card-title {
+        font-size:medium;
+    }
+    
+    .card-text {
+        font-size: small;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 custom-row">
+            
+            <div class="col">
+                <div class="custom-card text-center" onclick="cargarContenido('aventuraslit/adivinapa')" >
+                    <img src="/img/adpa.png" class="card-img-top mx-auto" 
+                    alt="Descripción de la imagen" 
+                    style="object-fit: cover; width:200px;margin-top: 10px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Adivina la palabra</h5>
+                        <p class="card-text">Utiliza la pista para adivinar la palabra</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="custom-card text-center" onclick="cargarContenido('aventuraslit/preguntas')">
+                    <img src="/img/preguntas_cultura.png" class="card-img-top mx-auto" alt="Descripción de la imagen" style="object-fit: cover; width:200px; margin-top: 10px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Cultura general</h5>
+                        <div class="card-text">Responde preguntas sobre sucesos conocidos a traves del mundo!</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="/js/jsBustrap/bootstrap.bundle.js"></script>
+
+</body>
+
+</html>

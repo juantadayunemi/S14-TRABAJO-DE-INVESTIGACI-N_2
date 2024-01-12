@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Adivina la palabra</title>
+  <style>
+  
+  #linea {
+    margin: 15px;
+  }
+  
+  .pista {
+    font-weight: bolder;
+  }
+  
+  #boton {
+    text-align: right;
+  }
+  
+  .envoltura {
+    width: auto;
+    background: rgb(223, 223, 223);
+    border-radius: 10px;
+    box-shadow: 10px 10px 25px rgba(24, 24, 24, 0.1);
+  }
+  
+  .envoltura h1 {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px 25px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .envoltura .contentenido {
+    margin: 25px 25px 35px;
+  }
+  
+  .contentenido .inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .inputs input {
+    height: 57px;
+    width: 57px;
+    margin: 4px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #1ba98c;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 1px solid #B5B5B5;
+  }
+  
+  .typing-input {
+    opacity: 0;
+    z-index: -999;
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  .inputs input:first-child {
+    margin-left: 0px;
+  }
+  
+  .contentenido .detalles {
+    margin: 25px 0 25px;
+  }
+  
+  .detalles p {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+  
+  .contentenido .reset-btn {
+    width: auto;
+    cursor: pointer;
+    color: #fff;
+    padding: 15px 0;
+    font-size: 17px;
+    border-radius: 5px;
+    background: #631491;
+    transition: all 0.3s ease;
+    padding: 2%;
+  }
+  
+  .contentenido .reset-btn:hover {
+    background: #8d18a5;
+  }
+  
+  /*Para móvil*/
+  
+  @media screen and (max-width: 460px) {
+    .envoltura {
+      width: 460px;
+    }
+  
+    .envoltura h1 {
+      font-size: 22px;
+      padding: 16px 20px;
+    }
+  
+    .envoltura .contentenido {
+      margin: 25px 20px 35px;
+    }
+  
+    .detalles p {
+      font-size: 17px;
+    }
+  
+    .inputs input {
+      height: 51px;
+      width: 50px;
+      margin: 3px;
+      font-size: 22px;
+    }
+  
+    .contentenido .reset-btn {
+      padding: 14px 0;
+      font-size: 16px;
+    }
+}</style>
+</head>
+<body>
+  <div class="envoltura">
+    <h1>Palabra la adivinar</h1>
+    <div class="contentenido">
+      <input type="text" class="typing-input" maxlength="1">
+      <div class="inputs"></div>
+      <hr id="linea" />
+      <div class="detalles">
+        <p class="pista">Pista: <span></span></p>
+        <p class="posibilidades">Posibilidades restantes: <span></span></p>
+        <p class="letrasErroneas">Letras equivocadas: <span></span></p>
+      </div>
+      <div id="boton"><button class="reset-btn">Volver a empezar</button></div>
+    </div>
+  </div>
+</body>
+</html>
