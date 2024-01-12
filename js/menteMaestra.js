@@ -7,6 +7,9 @@ if (!window.color) {
     let matchedPairs= 0;
     let isFlipping= false;
     let timerInterval  = 0;
+    let  containerCards  = document.getElementById("card_container");
+    let containerGame  = document.getElementById("game_container");
+    let otherGameButton  = document.getElementById("otherGameButton");
 }
 
 colors= ['red', 'blue', 'green', 'yellow', '#12031c', 'orange', 'pink', 'brown'];
@@ -17,10 +20,21 @@ flippedCards= [];
 matchedPairs= 0;
 isFlipping= false;
 timerInterval  = 0;
+containerCards  = document.getElementById("card_container");
+containerGame  = document.getElementById("game_container");
+otherGameButton  = document.getElementById("otherGameButton");
 
-function LoadGame() 
-    {
-        console.log('LoadGame function called');
+function LoadGame()  {
+
+
+    containerCards.classList.add("hide");
+    containerGame.classList.remove("hide");
+
+    otherGameButton.addEventListener('click' ,function(){
+        containerGame.classList.add("hide");
+        containerCards.classList.remove("hide");
+    });
+
 
         initializeGame();
   
@@ -167,8 +181,12 @@ function checkMatch() {
 };
    
 function  updateTimer() {
-    const currentTime = new Date();
-    const elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
-    document.getElementById('timer').textContent = `Tiempo= ${elapsedSeconds} segundos`;
+    let currentTime = new Date();
+    let elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+
+    let timer =   document.getElementById('timer') ;
+    if (timer)
+        timer.textContent =`Tiempo= ${elapsedSeconds} segundos`;
+  
 };
 

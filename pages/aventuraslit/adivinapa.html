@@ -33,7 +33,7 @@
   }
   
   .envoltura .contentenido {
-    margin: 25px 25px 35px;
+    margin: 0px 50px ;
   }
   
   .contentenido .inputs {
@@ -75,7 +75,7 @@
     margin-bottom: 10px;
   }
   
-  .contentenido .reset-btn {
+  .d-flex .reset-btn {
     width: auto;
     cursor: pointer;
     color: #fff;
@@ -85,9 +85,10 @@
     background: #631491;
     transition: all 0.3s ease;
     padding: 2%;
+    margin: 10px;
   }
   
-  .contentenido .reset-btn:hover {
+  .d-flex .reset-btn:hover {
     background: #8d18a5;
   }
   
@@ -118,15 +119,32 @@
       font-size: 22px;
     }
   
-    .contentenido .reset-btn {
+    .d-flex .reset-btn {
       padding: 14px 0;
       font-size: 16px;
     }
-}</style>
+    .contentenido .reset-btn {
+      /* Otras propiedades de estilo ... */
+      margin-top: 15px; /* Añadir margen superior para separar el botón del resto de los elementos */
+    }
+
+}
+
+</style>
 </head>
 <body>
-  <div class="envoltura">
-    <h1>Palabra la adivinar</h1>
+
+  <div class="envoltura" style="margin-top: 0px; padding-bottom: 50px;">
+    
+    <div class="container d-flex flex-column align-items-center mt-5">
+      <!-- Cambios aquí -->
+      <div class="d-flex flex-row justify-content-center">
+        <button  id="otherGameButton" class="btn btn-primary m-3">Elegir otro juego</button>
+        <h1 class="text-center">Palabra a adivinar</h1>
+        <div id="boton"><button class="reset-btn">Elegir otra palabra</button></div>
+      </div>
+    </div>
+
     <div class="contentenido">
       <input type="text" class="typing-input" maxlength="1">
       <div class="inputs"></div>
@@ -136,7 +154,7 @@
         <p class="posibilidades">Posibilidades restantes: <span></span></p>
         <p class="letrasErroneas">Letras equivocadas: <span></span></p>
       </div>
-      <div id="boton"><button class="reset-btn">Volver a empezar</button></div>
+
     </div>
   </div>
 </body>

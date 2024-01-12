@@ -9,6 +9,10 @@ if(!window.num1){
   let txt_suma = document.getElementById("suma");
   let txt_msj = document.getElementById("msj");
   let txt_resultado = document.getElementById("resultado");
+
+  let containerCards  = document.getElementById("card_container");
+  let containerGame  = document.getElementById("game_container");
+  let otherGameButton  = document.getElementById("otherGameButton");
 }
 num1 = 0
 num2 = 0
@@ -22,7 +26,21 @@ op3 = document.getElementById("op3");
 txt_msj = document.getElementById("msj");
 txt_resultado = document.getElementById("resultado");
 
+containerCards  = document.getElementById("card_container");
+containerGame  = document.getElementById("game_container");
+otherGameButton  = document.getElementById("otherGameButton");
+
+
 function LoadGame(){
+
+    containerCards.classList.add("hide");
+    containerGame.classList.remove("hide");
+
+    otherGameButton.addEventListener('click' ,function(){
+        containerGame.classList.add("hide");
+        containerCards.classList.remove("hide");
+
+    });
 
 }
 function stopGame(){

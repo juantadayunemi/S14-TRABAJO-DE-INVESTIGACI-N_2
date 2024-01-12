@@ -5,6 +5,9 @@ if (!window.images) {
     const shuffledImages  = null ;
     const shuffledImagesStar  = null;
     let clickedCount= 0;
+    let containerCards  = document.getElementById("card_container");
+    let containerGame  = document.getElementById("game_container");
+    let otherGameButton  = document.getElementById("otherGameButton");
 }
 
 images =  ['perro', 'gato', 'cardinal', 'elefante', 'leon', 'rana', 'vaca', 'caballo'];
@@ -13,8 +16,21 @@ timerInterval = 0;
 shuffledImages  = null;
 shuffledImagesStar  = null;
 clickedCount= 0;
+containerCards  = document.getElementById("card_container");
+containerGame  = document.getElementById("game_container");
+otherGameButton  = document.getElementById("otherGameButton");
+
 
 function LoadGame() {
+
+    containerCards.classList.add("hide");
+    containerGame.classList.remove("hide");
+
+    otherGameButton.addEventListener('click' ,function(){
+        containerGame.classList.add("hide");
+        containerCards.classList.remove("hide");
+    });
+
     initializeGame();
 
     var button = document.getElementById('btn-success');
@@ -210,12 +226,14 @@ function flipFirstRow() {
 
 function startTimer() {
     timerInterval = setInterval(() => {
-        const currentTime = new Date();
-        const elapsedTime = Math.floor((currentTime - startTime) / 1000);
-        document.getElementById('timer').textContent = 'Tiempo: ' + elapsedTime + ' segundos';
+        let currentTime = new Date();
+        let elapsedTime = Math.floor((currentTime - startTime) / 1000);
+        let timer =   document.getElementById('timer') ;
+        if (timer)
+            timer.textContent = 'Tiempo: ' + elapsedTime + ' segundos';
+  
     }, 1000);
 }
-
 
 function stopGame() {
     isGameActive = false;

@@ -8,6 +8,7 @@ if (!window.tbody) {
     let _califAdd  = null ;
     let _califUpdate  = null ;
     let data  = null;
+    let containerGame  = document.getElementById("game_container");
 }
 
  tbody= null;
@@ -18,8 +19,11 @@ if (!window.tbody) {
  _nameUpdate  = null ;
  _califAdd  = null ;
 data = null;
+containerGame  = document.getElementById("game_container");
 
 function LoadGame() {
+
+    containerGame.classList.remove("hide");
 
     //load data 
     loadData();

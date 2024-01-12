@@ -11,13 +11,12 @@ document.addEventListener("DOMContentLoaded", function ()
             event.preventDefault();
             
             let page = this.getAttribute("href");
-
-            console.log(page);
-
+          
             //Efecto de color
             navLinks.forEach(link => {
                 link.classList.remove("text-warning");
             });
+
             this.classList.add("text-warning");
 
             //carga  página parcial
@@ -26,8 +25,6 @@ document.addEventListener("DOMContentLoaded", function ()
     });
 
     function loadPartialPage(page) {
-        console.log(`page`);
-        console.log(page);
 
         if (page === null || page === undefined) {
             cardContainer.innerHTML = null;
@@ -35,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function ()
             return;
         }
 
+    console.log(page);
      let url = `./pages/${page}.html`;
         
         fetch(url)
@@ -43,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function ()
                 
                 //carga las tarjetas de grupos de juego
                 cardContainer.innerHTML = data;
+                cardContainer.classList.remove("hide");
                 gameConatiner.innerHTML  = null;
             })
             .catch(error => {

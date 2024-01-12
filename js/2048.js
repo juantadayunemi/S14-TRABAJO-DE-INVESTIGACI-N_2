@@ -34,6 +34,9 @@ if (!window.grid) {
   let slideRight= null
   let slideLeft= null
   let startGame= null
+  let   containerCards  = document.getElementById("card_container");
+  let containerGame  = document.getElementById("game_container");
+  let otherGameButton  = document.getElementById("otherGameButton");
 }
 
 grid = document.querySelector(".cuadro");
@@ -42,6 +45,27 @@ container = document.querySelector(".ola");
 coverScreen = document.querySelector(".cover-screen");
 result = document.getElementById("result");
 overText = document.getElementById("over-text");
+
+containerCards  = document.getElementById("card_container");
+containerGame  = document.getElementById("game_container");
+otherGameButton  = document.getElementById("otherGameButton");
+
+function LoadGame() {
+
+  containerCards.classList.add("hide");
+  containerGame.classList.remove("hide");
+
+  otherGameButton.addEventListener('click' ,function(){
+      containerGame.classList.add("hide");
+      containerCards.classList.remove("hide");
+
+  });
+
+  startButton.addEventListener("click", () => {
+    startGame();
+    swipeDirection = "";
+  });
+}
 
 matrix = [],
   score = 0,
@@ -342,12 +366,8 @@ startGame = () => {
   generateTwo();
   generateTwo();
 };
-function LoadGame() {
-  startButton.addEventListener("click", () => {
-    startGame();
-    swipeDirection = "";
-  });
-}
+
+
 function stopGame(){
 
 }

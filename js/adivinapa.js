@@ -1,15 +1,24 @@
 if (!window.inputs) {
-    const inputs = document.querySelector(".inputs")
-    const resetBtn = document.querySelector(".reset-btn")
-    const pistaTag = document.querySelector(".pista span")
-    const posibilRestantes = document.querySelector(".posibilidades span")
-    const letraEquivocada = document.querySelector(".letrasErroneas span")
-    const typingInput = document.querySelector(".typing-input")
+    let inputs = document.querySelector(".inputs")
+    let resetBtn = document.querySelector(".reset-btn")
+    let pistaTag = document.querySelector(".pista span")
+    let posibilRestantes = document.querySelector(".posibilidades span")
+    let letraEquivocada = document.querySelector(".letrasErroneas span")
+    let typingInput = document.querySelector(".typing-input")
     let palabra, maxSuposiciones, letrasCorrectas = [], letrasIncorrectas = []
+    let containerCards  = document.getElementById("card_container");
+    let containerGame  = document.getElementById("game_container");
+    let otherGameButton  = document.getElementById("otherGameButton");
+    let listado  =[];
+
 }
 
+containerCards  = document.getElementById("card_container");
+otherGameButton  = document.getElementById("otherGameButton");
+containerGame  = document.getElementById("game_container");
+
 //Conjunto determinado de palabras para adivinar
-let listado = [
+listado = [
     {
         palabra: "javascript",
         pista: "Lenguaje con el que se ha escrito este programa"
@@ -34,21 +43,27 @@ let listado = [
 ]
 function LoadGame(){
 
+    containerCards.classList.add("hide");
+    containerGame.classList.remove("hide");
+
+    otherGameButton.addEventListener('click' ,function(){
+        containerGame.classList.add("hide");
+        containerCards.classList.remove("hide");
+
+    });
 }
 function stopGame(){
 
 }
 
 // Contantes que devuelven el primer elemento que coincide con el grupo especificado
-const inputs = document.querySelector(".inputs"),
+ inputs = document.querySelector(".inputs"),
     resetBtn = document.querySelector(".reset-btn"),
     pistaTag = document.querySelector(".pista span"),
     posibilRestantes = document.querySelector(".posibilidades span"),
     letraEquivocada = document.querySelector(".letrasErroneas span"),
     typingInput = document.querySelector(".typing-input");
 
-// Variables de alcance limitado a un bloque    
-let palabra, maxSuposiciones, letrasCorrectas = [], letrasIncorrectas = [];
 
 // Selección aleatoria de la palabra a adivinar
 function palabraAleatoria() {

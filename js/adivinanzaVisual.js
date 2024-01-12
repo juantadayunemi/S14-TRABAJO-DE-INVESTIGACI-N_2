@@ -11,6 +11,9 @@ if (!window.animals) {
     let  lastSound= null ;
     let timerInterval = 0;
     let soundInterval  = 0;
+    let  containerCards  = document.getElementById("card_container");
+    let containerGame  = document.getElementById("game_container");
+    let otherGameButton  = document.getElementById("otherGameButton");
 }
 
 if (!window.soundInterval){
@@ -30,7 +33,19 @@ lastSound= null ;
 timerInterval = 0;
 soundInterval  = 0;
 
+containerCards  = document.getElementById("card_container");
+containerGame  = document.getElementById("game_container");
+otherGameButton  = document.getElementById("otherGameButton");
+
 function LoadGame() {
+
+    containerCards.classList.add("hide");
+    containerGame.classList.remove("hide");
+
+    otherGameButton.addEventListener('click' ,function(){
+        containerGame.classList.add("hide");
+        containerCards.classList.remove("hide");
+    });
 
     initializeGame();
 
@@ -185,9 +200,14 @@ function startTimer() {
     startTime = new Date();
     timerInterval = setInterval(() => {
         if (isGameActive) {
-            const currentTime = new Date();
-            totalTime = Math.floor((currentTime - startTime) / 1000);
-            document.getElementById('timer').textContent = `Tiempo: ${totalTime} segundos`;
+            
+            let currentTime = new Date();
+            let elapsedSeconds = Math.floor((currentTime - startTime) / 1000);
+        
+            let timer =   document.getElementById('timer') ;
+            if (timer)
+                timer.textContent =`Tiempo= ${elapsedSeconds} segundos`;
+           
         }
     }, 1000);
 

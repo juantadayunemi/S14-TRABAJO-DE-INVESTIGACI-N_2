@@ -1,16 +1,24 @@
 if (!window.npreguntas) {
   let preguntas_aleatorias = true;
-let mostrar_pantalla_juego_términado = true;
-let reiniciar_puntos_al_reiniciar_el_juego = true;
+  let mostrar_pantalla_juego_términado = true;
+  let reiniciar_puntos_al_reiniciar_el_juego = true;
 
-let pregunta;
-let posibles_respuestas;
-let npreguntas = []
-let preguntas_hechas = 0;
-let preguntas_correctas = 0;
-let suspender_botones = false;
-let interprete_bp = null
+  let pregunta;
+  let posibles_respuestas;
+  let npreguntas = []
+  let preguntas_hechas = 0;
+  let preguntas_correctas = 0;
+  let suspender_botones = false;
+  let interprete_bp = null
+  let containerCards  = document.getElementById("card_container");
+  let containerGame  = document.getElementById("game_container");
+  let otherGameButton  = document.getElementById("otherGameButton");
 }
+
+containerCards  = document.getElementById("card_container");
+containerGame  = document.getElementById("game_container");
+otherGameButton  = document.getElementById("otherGameButton");
+
 preguntas_aleatorias = true;
 mostrar_pantalla_juego_términado = true;
 reiniciar_puntos_al_reiniciar_el_juego = true;
@@ -132,6 +140,16 @@ preguntas_hechas = 0;
 preguntas_correctas = 0;
 
 function LoadGame(){
+
+  containerCards.classList.add("hide");
+  containerGame.classList.remove("hide");
+
+  otherGameButton.addEventListener('click' ,function(){
+      containerGame.classList.add("hide");
+      containerCards.classList.remove("hide");
+
+  });
+
   escogerPreguntaAleatoria();
 }
 function stopGame(){

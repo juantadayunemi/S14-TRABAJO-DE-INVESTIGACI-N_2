@@ -1,146 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2048 Game</title>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet-->
-    <style>
-      .heading {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      h1 {
-        color: #776e65;
-      }
-      
-      h1 {
-        font-size: 4em;
-      }
-      .score-container {
-        color: #776e65;
-      }
-      #score {
-        font-weight: 600;
-      }
-      .cuadro {
-        width: 25em;
-        height: 25em;
-        background-color: #cdc1b5;
-        border: 5px solid #bbada0;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        border-radius: 0.5em;
-      }
-      .box {
-        width: 97.5px;
-        height: 97.5px;
-        border: 5px solid #bbada0;
-        font-size: 40px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .cover-screen {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #faf8ef;
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-      #start-button {
-        background-color: #8f7a66;
-        padding: 1em 2em;
-        border: none;
-        border-radius: 0.5em;
-        font-size: 1em;
-        letter-spacing: 0.2px;
-        color: #ffffff;
-      }
-      .hide {
-        display: none;
-      }
-      .box-2 {
-        background-color: #eee4da;
-        color: #727371;
-      }
-      .box-4 {
-        background-color: #eee1c9;
-        color: #727371;
-      }
-      
-      .box-8 {
-        background-color: #f3b27a;
-        color: white;
-      }
-      
-      .box-16 {
-        background-color: #f69664;
-        color: white;
-      }
-      
-      .box-32 {
-        background-color: #f77c5f;
-        color: white;
-      }
-      
-      .box-64 {
-        background-color: #f75f3b;
-        color: white;
-      }
-      
-      .box-128 {
-        background-color: #edd073;
-        color: white;
-      }
-      
-      .box-256 {
-        background-color: #edcc63;
-        color: white;
-      }
-      
-      .box-512 {
-        background-color: #edc651;
-        color: white;
-      }
-      
-      .box-1024 {
-        background-color: #eec744;
-        color: white;
-      }
-      
-      .box-2048 {
-        background-color: #ecc230;
-        color: white;
-      }</style>
-  </head>
-  <body>
-    <div class="ola" style="margin-bottom: 100px;">
-      <div class="heading">
-        <h1>2048</h1>
-        <div class="score-container">
-          Score:
-          <span id="score">0</span>
-        </div>
-      </div>
-      <div class="cuadro"></div>
-    </div>
-    <div class="cover-screen">
-      <h2 id="over-text" class="hide">Game Over</h2>
-      <p id="result"></p>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2048 Game</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Stylesheet-->
+  <style>
+    .heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h1 {
+      color: #776e65;
+    }
+
+    h1 {
+      font-size: 4em;
+    }
+
+    .score-container {
+      color: #776e65;
+    }
+
+    #score {
+      font-weight: 600;
+    }
+
+    .cuadro {
+      width: 25em;
+      height: 25em;
+      background-color: #cdc1b5;
+      border: 5px solid #bbada0;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 0.5em;
+    }
+
+    .box {
+      width: 97.5px;
+      height: 97.5px;
+      border: 5px solid #bbada0;
+      font-size: 40px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cover-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Esto establece la altura al 100% del viewport */
+    }
+
+    #start-button {
+      background-color: #8f7a66;
+      padding: 1em 2em;
+      border: none;
+      border-radius: 0.5em;
+      font-size: 1em;
+      letter-spacing: 0.2px;
+      color: #ffffff;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .box-2 {
+      background-color: #eee4da;
+      color: #727371;
+    }
+
+    .box-4 {
+      background-color: #eee1c9;
+      color: #727371;
+    }
+
+    .box-8 {
+      background-color: #f3b27a;
+      color: white;
+    }
+
+    .box-16 {
+      background-color: #f69664;
+      color: white;
+    }
+
+    .box-32 {
+      background-color: #f77c5f;
+      color: white;
+    }
+
+    .box-64 {
+      background-color: #f75f3b;
+      color: white;
+    }
+
+    .box-128 {
+      background-color: #edd073;
+      color: white;
+    }
+
+    .box-256 {
+      background-color: #edcc63;
+      color: white;
+    }
+
+    .box-512 {
+      background-color: #edc651;
+      color: white;
+    }
+
+    .box-1024 {
+      background-color: #eec744;
+      color: white;
+    }
+
+    .box-2048 {
+      background-color: #ecc230;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  
+  <div class="container d-flex flex-column align-items-center mt-5">
+    <!-- Cambios aquí -->
+    <div class="d-flex flex-row justify-content-center">
+      <button id="otherGameButton" class="btn btn-primary m-2">Elegir otro juego</button>
       <button id="start-button">Start Game</button>
     </div>
-  </body>
+  </div>
+
+  <div class="ola" style="margin: 0px 50px 100px 50px;">
+    <div class="heading">
+      <h1>2048</h1>
+      <div class="score-container">
+        Score:
+        <span id="score">0</span>
+      </div>
+    </div>
+    <div class="cuadro"></div>
+  </div>
+
+  <div class="cover-screen">
+    <h2 id="over-text" class="hide">Game Over</h2>
+    <p id="result"></p>
+  </div>
+
+</body>
+
 </html>

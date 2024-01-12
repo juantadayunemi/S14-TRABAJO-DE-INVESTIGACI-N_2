@@ -6,7 +6,7 @@ function cargarContenido(page) {
     const url = `./pages/${page}.html`;
 
     deleteOldPage();
-    console.log(page);
+
     fetch(url)
         .then(response => response.text())
         .then(data => {
@@ -44,7 +44,6 @@ function cargarContenido(page) {
                 case "matemagicos/sumarandom":
                     loadScrip('sumarandom');
                     break;
-
 
 
                 case "tablas/listaNotas":

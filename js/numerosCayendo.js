@@ -8,9 +8,19 @@ if (!window.gamePanel) {
   let timerInterval = null;
   let totalTime = 0;
   let fallSpeed = 1; // Factor de velocidad inicial
+
+  let  containerCards  = document.getElementById("card_container");
+  let containerGame  = document.getElementById("game_container");
+  let otherGameButton  = document.getElementById("otherGameButton");
+
 }
 gamePanel = document.getElementById('game_panel');
  timerDisplay = document.getElementById('timer');
+
+containerCards  = document.getElementById("card_container");
+containerGame  = document.getElementById("game_container");
+otherGameButton  = document.getElementById("otherGameButton");
+
  score = 1;
  isGameActive = false;
  animationId = null;
@@ -22,6 +32,15 @@ gamePanel = document.getElementById('game_panel');
  gamePanel.style.margin = '60px';
 
 function LoadGame() {
+
+  containerCards.classList.add("hide");
+  containerGame.classList.remove("hide");
+
+  otherGameButton.addEventListener('click' ,function(){
+      containerGame.classList.add("hide");
+      containerCards.classList.remove("hide");
+  });
+
   const button = document.getElementById('btn-success');
   button.addEventListener('click', startGame);
 }
