@@ -9,7 +9,10 @@ document.addEventListener("DOMContentLoaded", function ()
     navLinks.forEach(link => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
-            const page = this.getAttribute("href");
+            
+            let page = this.getAttribute("href");
+
+            console.log(page);
 
             //Efecto de color
             navLinks.forEach(link => {
@@ -23,15 +26,16 @@ document.addEventListener("DOMContentLoaded", function ()
     });
 
     function loadPartialPage(page) {
+        console.log(`page`);
+        console.log(page);
 
         if (page === null || page === undefined) {
             cardContainer.innerHTML = null;
             gameConatiner.innerHTML  = null;
             return;
         }
- 
-        //Construyo la url a cargar
-        let url = `./pages/${page}.html`;
+
+     let url = `./pages/${page}.html`;
         
         fetch(url)
             .then(response => response.text())

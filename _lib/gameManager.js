@@ -6,7 +6,7 @@ function cargarContenido(page) {
     const url = `./pages/${page}.html`;
 
     deleteOldPage();
-console.log(page);
+    console.log(page);
     fetch(url)
         .then(response => response.text())
         .then(data => {
@@ -28,6 +28,25 @@ console.log(page);
                 case "reflejos/numerosCayendo":
                     loadScrip('numerosCayendo');
                     break;
+
+                case "aventuraslit/adivinapa":
+                    loadScrip('adivinapa');
+                    break;
+
+                case "aventuraslit/preguntas":
+                    loadScrip('preguntas');
+                    break;
+
+                case "matemagicos/2048":
+                    loadScrip('2048');
+                    break;
+
+                case "matemagicos/sumarandom":
+                    loadScrip('sumarandom');
+                    break;
+
+
+
                 case "tablas/listaNotas":
                     loadScrip('listaNotas');
                     break;
@@ -41,7 +60,7 @@ console.log(page);
 
 //Function that loads the js file and starts the game
 function loadScrip(nameFile) {
- 
+
     loadDynamicScript(nameFile)
         .then(() => {
             console.log(`${nameFile} cargado exitosamente`);
